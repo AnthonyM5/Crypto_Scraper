@@ -16,6 +16,8 @@ INDEX_URL = "https://coinmarketcap.com/"
       when 'start'
         display_coins
         show_coin
+      when 'quit'
+        puts "Thank You for using CryptoScraper, Goodbye!"
       end
 
     end
@@ -37,6 +39,10 @@ INDEX_URL = "https://coinmarketcap.com/"
     coins = Coins.all
     input = gets.chomp.to_i
     time = Time.now
+
+    if input > 100 || input < 1
+      puts "Please enter a valid selection."
+    end
 
     if (1..coins.length).include?(input)
       coin = Coins.all[input - 1]
